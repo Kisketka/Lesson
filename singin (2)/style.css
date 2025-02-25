@@ -1,0 +1,124 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Work Sans', sans-serif;
+} 
+
+body { 
+    background: #f4f4f4; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+} 
+
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+} 
+
+.welcome-message {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #333;
+} 
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+} 
+
+form { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    max-width: 400px; 
+    width: 100%;
+    padding: 30px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+} 
+
+h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+input { 
+    border-radius: 8px; 
+    outline: none; 
+    border: 1px solid #ccc; 
+    padding: 12px;
+    width: 100%; 
+    font-size: 16px;
+    margin-bottom: 16px;
+} 
+
+button { 
+    width: 100%; 
+    background: #000; 
+    color: #fff; 
+    border: none; 
+    border-radius: 8px; 
+    padding: 14px; 
+    cursor: pointer; 
+    font-size: 16px;
+    transition: background 0.2s ease-in-out; 
+    margin-top: 12px;
+} 
+
+button:hover { 
+    background: #333;
+} 
+
+.account { 
+    font-size: 14px; 
+    color: #555; 
+    text-align: center;
+    margin-top: 16px;
+} 
+
+.account a { 
+    font-size: 14px; 
+    color: #000; 
+    font-weight: bold;
+    text-decoration: none;
+} 
+
+.account a:hover {
+    text-decoration: underline;
+}
+
+label { 
+    font-size: 14px; 
+    color: #444; 
+    display: block;
+    margin-bottom: 6px;
+} 
+
+.input-with-icon { 
+    position: relative; 
+    width: 100%;
+} 
+
+.input-with-icon img { 
+    position: absolute; 
+    top: 40%; 
+    right: 12px; 
+    transform: translateY(-50%);
+    cursor: pointer; 
+    width: 20px; 
+    opacity: 0.7;
+    transition: opacity 0.2s;
+} 
+
+.input-with-icon img:hover {
+    opacity: 1;
+}
