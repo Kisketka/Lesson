@@ -3,7 +3,6 @@ const formData = {
     password: ""
 };
 
-// Перемикання видимості пароля
 document.getElementById("toggle-password").addEventListener("click", function () {
     let passwordInput = document.getElementById("password");
     
@@ -16,7 +15,6 @@ document.getElementById("toggle-password").addEventListener("click", function ()
     }
 });
 
-// Збереження введених значень
 document.getElementById("email").addEventListener("input", function () {
     formData.email = this.value;
 });
@@ -24,7 +22,6 @@ document.getElementById("password").addEventListener("input", function () {
     formData.password = this.value;
 });
 
-// Вивід значень у консоль
 document.getElementById("submit-btn").addEventListener("click", function () {
     console.log("Введений email:", formData.email);
     console.log("Введений пароль:", formData.password);
