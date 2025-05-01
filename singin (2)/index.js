@@ -6,6 +6,13 @@ const app = express();
 
 let users = [];
 
+let upgrades = [{
+  "id": 1,
+  "name": "Click Accelerator",
+  "description": "speed of earning x10",
+  "price": 40000
+}];
+
 
 
 app.use(cors());
@@ -61,6 +68,28 @@ app.post('/sign-in', (req, res) => {
   res.status(200).json({ "token": generateToken(email) });
 });
 
+
+  upgrade.name = name;
+  upgrade.description = description;
+  upgrade.price = price;
+
+  res.json(upgrade);
+});
+
+app.delete('/upgrades/:id', (req, res) => {
+  const upgradeIndex = upgrades.findIndex(u => u.id === parseInt(req.params.id));
+
+  if (upgradeIndex === -1) {
+    return res.status(404).json({ error: "Upgrade не знайдено" });
+  }
+
+  upgrades.splice(upgradeIndex, 1);
+  res.status(204).send();
+});
+
 app.listen(3000, () => {
   console.log('Server is running on port http://localhost:3000');
 });
+
+
+
