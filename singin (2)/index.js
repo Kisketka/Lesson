@@ -4,6 +4,8 @@ const encodePassword = require('./hash').encodePassword;
 const generateToken = require('./hash').generateToken;
 const app = express();
 
+let users = [];
+
 
 
 app.use(cors());
@@ -12,7 +14,7 @@ app.use(express.json());
 app.post('/sign-up', (req, res) => {
   const { email, password } = req.body;
 
-  if (email || password) {
+  if (!email ||!password) {
     res.status(400).json({ message: 'Email and password are required!' });
     return;
   }
@@ -29,18 +31,18 @@ app.post('/sign-up', (req, res) => {
     return;
   }
 
+  const hashedPassword = await encodePassword(password);
+  
+  users.push({email, password: hashedPassword });
+  
+
   res.status(201).json({ message: 'Реєстрація успішна!' });
 });
-
-app.listen(3000, () => {
-  console.log('Server is running on port http://localhost:3000');
-});
-
 
 app.post('/sign-in', (req, res) => {
   const { email, password } = req.body;
 
-  if (email || password) {
+  if (!email || !password) {
     res.status(401).json({ message: 'Email and password are required!' });
     return;
   }
