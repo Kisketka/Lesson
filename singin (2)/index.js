@@ -53,7 +53,7 @@ app.post('/sign-in', (req, res) => {
     return;
   }
 
-  if(users.find((user) => user.password === password)) {
+  if(users.find((user) => user.password ===  encodePassword(password))) {
     res.status(400).json({ message: ' Password is not correct'});
     return;
   }
