@@ -31,7 +31,7 @@ app.post('/sign-up', (req, res) => {
     return;
   }
 
-  const hashedPassword = await encodePassword(password);
+  const hashedPassword = encodePassword(password);
   
   users.push({email, password: hashedPassword });
   
@@ -50,6 +50,11 @@ app.post('/sign-in', (req, res) => {
 
   if (users.find((user) => user.email === email)) {
     res.status(400).json({ message: 'Email is not correct' });
+    return;
+  }
+
+  if(users.find((user) => user.password === password)) {
+    res.status(400).json({ message: ' Password is not correct'});
     return;
   }
 
