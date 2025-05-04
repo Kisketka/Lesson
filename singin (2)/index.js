@@ -76,6 +76,38 @@ app.post('/sign-in', (req, res) => {
   res.json(upgrade);
 });
 
+// ADD NEW UPGRADE
+app.post('/upgrades', (req, res) => {
+  const upgrade = { id: nextId++, ...req.body };
+  upgrades.push(upgrade);
+  res.status(201).json(upgrade);
+});
+
+// – Отримати всі апгрейди
+app.get('/upgrades', (req, res) => {
+  res.json(upgrades);
+});
+
+// –Отримати апгрейд за ID
+app.get('/upgrades/:id', (req, res) => {
+  const upgrade = upgrades.find(u => u.id === parseInt(req.params.id));
+  if (!upgrade) {
+    return res.status(404).json({ error: "Upgrade не знайдено" });
+  }
+  res.json(upgrade);
+});
+
+// UPDATE
+app.put('/upgrades/:id', (req, res) => {
+  const upgrade = upgrades.find(u => u.id === parseInt(req.params.id));
+  if (!upgrade) {
+    return res.status(404).json({ error: "Upgrade не знайдено" });
+  }
+
+  Object.assign(upgrade, req.body);
+  res.json(upgrade);
+});
+
 app.delete('/upgrades/:id', (req, res) => {
   const upgradeIndex = upgrades.findIndex(u => u.id === parseInt(req.params.id));
 
