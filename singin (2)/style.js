@@ -32,6 +32,7 @@ document.getElementById("submit-btn").addEventListener("click", function () {
 });
 
 async function sedRequest(endpoint) {
+    const userId = localStorage.getItem('userId');
   const res = await fetch(endpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'apliccation/json },
