@@ -13,6 +13,32 @@ let upgrades = [{
   "price": 40000
 }];
 
+fuction getUserById(id) {
+ return users.find(user => user.id === id);
+}
+
+//Click
+app.post('/click' (req, res) => {
+  const {userId } = req.body;
+  if(!userId)return res.status(400).json({message: 'Missing id' });
+
+  const user = getUserById(userId);
+  if(!user) return  res.status(404).json({ message 'User not found'});
+
+  user.balance += user.coinsPerClick;
+  res.status(200).json({ balance: user.balance });
+
+//Passive
+app.post('/passive-income' (req, res) => {
+   const { userId } = req.body;
+   if(!userId) return re.status(400).json({ message: Missing Id' });
+
+   const user = getUserById(userId);
+   if(!user) return res.status(404).json({ message 'User not found' });
+
+   user.balance += user.PassiveInCome;
+   return res.status(200).json({ balance: user.balance });
+});
 
 
 app.use(cors());
