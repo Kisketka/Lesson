@@ -1,3 +1,4 @@
+
 const formData = {
     email: "",
     password: ""
@@ -26,3 +27,30 @@ document.getElementById("submit-btn").addEventListener("click", function () {
     console.log("Введений email:", formData.email);
     console.log("Введений пароль:", formData.password);
 });
+
+async function sedRequest(endpoint) {
+  const res = await fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'apliccation/json },
+    body: JSON.stringify({ userId })
+});
+
+if (res.ok) {
+    const data = await res.json();
+    document.getElementById('balance').innerText = data.balance;
+  }
+}   
+
+document.getElementById('clickBtn').addEventListener('click', () => {
+    sendRequest('/click');
+});
+    
+setInterval(() => {
+    sendRequest('/passive-income');
+}, 1000);
+    
+
+
+
+
+
