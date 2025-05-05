@@ -91,7 +91,7 @@ app.post('/sign-in', (req, res) => {
     return;
   }
 
-  res.status(200).json({ "token": generateToken(email) });
+  res.status(200).json({ "userId": generateToken(email) });
 });
 
 
