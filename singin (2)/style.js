@@ -1,4 +1,7 @@
 
+let users = [
+    { id: 'user1', balance: 0, coinsPerClick: 10, passiveInComePerSecond: 1} ];
+
 const formData = {
     email: "",
     password: ""
