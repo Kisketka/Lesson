@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }).then(response => {
             return response.json()
         }).then(data => {
+            localStorage.setItem('userId', userIdFromServer);
             console.log(data)
         })
     });
